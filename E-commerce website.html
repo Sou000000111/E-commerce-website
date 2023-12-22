@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+    
+    <title>E-commerce Website</title>
+    <style>
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px 80px;
+            background-color: rgb(235, 237, 191);
+            width: 100%;
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 999;
+
+
+        }
+
+
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        #navbar li {
+            list-style: none;
+            padding: 0 20px;
+            position: relative;
+
+        }
+
+        #navbar li a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            transition: 0.15s ease;
+
+        }
+
+        #navbar li a:hover,
+        #navbar li a:active {
+            color: rgb(140, 108, 237);
+        }
+
+        #navbar li a.active::after,
+        #navbar li a:hover::after {
+            content: "";
+            width: 30%;
+            height: 2px;
+            color: rgb(157, 247, 157);
+            position: absolute;
+            bottom: -4px;
+            left: 20px;
+        }
+
+        #mobile {
+            display: none;
+            align-items: center;
+
+        }
+
+        #hero {
+            background-image: url(Free\ Photo\ _\ The\ girl\ holds\ a\ fashion\ shopping\ bag\ and\ holds\ a\ smart\ card\ on\ a\ yellow\ background_.jpeg);
+            height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-position: top 25% right 0;
+            padding: 0 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            font-size: 20px;
+            background-repeat: no-repeat;
+
+
+
+        }
+
+        #hero h4 {
+            padding-bottom: 15px;
+        }
+
+        #hero h1 {
+            color: rgb(251, 103, 103);
+        }
+
+        h6 {
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        p {
+            font-size: 18px;
+            color: black;
+            margin: 15px 0 20px 0;
+        }
+
+        .section-p1 {
+            padding: 40px 80px;
+        }
+
+        .section-m1 {
+            margin: 40px 0;
+        }
+
+        button.normal {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 15px 30px;
+            color: black;
+            background-color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        #hero button {
+            padding: 6px 20px;
+            border: 2px solid black;
+            box-shadow: 2px 3px;
+            color: rgb(179, 104, 6);
+            background-color: transparent;
+            margin: 17px 17px;
+            font-size: 16px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            cursor: pointer;
+            font-weight: 300;
+
+        }
+
+        #hero button:hover {
+            color: brown;
+        }
+
+        #feature {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 0px 110px;
+        }
+
+        .fe-box img {
+            width: 100px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        #feature .fe-box {
+            width: 100px;
+            text-align: center;
+            padding: 15px 15px;
+            box-shadow: 1px 1px 2px rgb(34, 33, 33);
+            border: 1.5px solid rgb(165, 165, 238);
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        #feature .fe-box:hover {
+            box-shadow: 10px 10px 54px rgba(24, 23, 53);
+        }
+
+        #feature .fe-box h6 {
+            padding: 9px 8px 6px 8px;
+            line-height: 1;
+            border-radius: 4px;
+            color: #088178;
+            background-color: #fddde4;
+            display: inline-block;
+
+        }
+
+        #feature .fe-box h6:hover {
+            cursor: pointer;
+            color: #034641;
+
+        }
+
+        #feature .fe-box:nth-child(2) h6 {
+            background-color: #cdebbc;
+        }
+
+        #feature .fe-box:nth-child(3) h6 {
+            background-color: #d1e8f2;
+        }
+
+        #feature .fe-box:nth-child(4) h6 {
+            background-color: #cdd4f8;
+        }
+
+        #feature .fe-box:nth-child(5) h6 {
+            background-color: #f6dbf6;
+        }
+
+        #feature .fe-box:nth-child(6) h6 {
+            background-color: #fff2e5;
+        }
+
+        .flip img {
+            width: 150px;
+            height: 60px;
+
+        }
+
+        #product1 {
+            text-align: center;
+        }
+
+        #product1 .pro-container {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        #product1 .pro {
+            width: 23%;
+            min-width: 250px;
+            padding: 10px 12px;
+            border: 1px solid #cce7d0;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+            margin: 15px 0;
+            transition: 0.2s ease;
+            position: relative;
+        }
+
+        #product1 .pro img {
+            width: 100%;
+            border-radius: 20px;
+            height: 280px;
+
+        }
+
+        #product1 .pro:hover {
+            box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.09);
+        }
+
+        #product1 h1 {
+            font-size: 40px;
+        }
+
+        #product1 .pro .des {
+            text-align: start;
+            padding: 10px 0;
+
+        }
+
+        #product1 .pro .des span {
+            color: #606063;
+            font-size: 12px;
+        }
+
+        #product1 .pro .des h5 {
+            padding: 7px;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+
+        #product1 .pro button {
+            background-color: rgb(209, 209, 209);
+            box-shadow: 1px solid rgb(111, 111, 111);
+            cursor: pointer;
+            box-shadow: 1px 2px;
+            transition: 0.1s ease;
+            position: absolute;
+            bottom: 40px;
+            right: 10px;
+        }
+
+        #product1 .pro button:hover {
+            color: rgb(49, 48, 48);
+        }
+
+        #product1 .pro .des h3 {
+            font-size: 17px;
+            color: #088178;
+            font-weight: 700;
+            padding-top: 7px;
+        }
+
+        #banner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-image: url(shoppinglst.jpg);
+            width: 112.9%;
+            height: 40vh;
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        #banner h4 {
+            color: white;
+            font-size: 16px;
+        }
+
+        #banner h2 {
+            color: white;
+            font-size: 30px;
+            padding: 10px 0;
+        }
+
+        #banner h2 span {
+            color: rgb(245, 98, 98);
+            font-size: 30px;
+            padding: 10px 0;
+        }
+
+        #banner button:hover {
+            background-color: orangered;
+            color: white;
+        }
+
+        #sm-banner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+        }
+
+        #sm-banner .banner-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            background-image: url(shop.jpg);
+            min-width: 480px;
+            height: 50vh;
+            background-size: cover;
+            background-position: center;
+            padding: 30px;
+
+
+        }
+
+        #sm-banner .banner-box h4 {
+            color: white;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+
+        #sm-banner .banner-box h2 {
+            color: white;
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        #sm-banner span {
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            padding-bottom: 15px;
+        }
+
+        button.white {
+            font-size: 13px;
+            font-weight: 600;
+            padding: 11px 18px;
+            color: white;
+            background-color: transparent;
+
+            cursor: pointer;
+            border: 1px solid white;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        button.white:hover {
+            background-color: black;
+        }
+
+        #sm-banner .banner-box2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            background-image: url(blackman.jpg);
+            min-width: 480px;
+            height: 50vh;
+            background-size: cover;
+            background-position: center;
+            padding: 30px;
+
+        }
+
+        #newsletter {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            background-image: url(signup2.jpg);
+            background-repeat: no-repeat;
+            background-position: 20% 30%;
+            background-color: #041e42;
+            width: 100%;
+        }
+
+        #newsletter h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+        }
+
+        #newsletter p {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgb(206, 206, 206);
+        }
+
+        #newsletter p span {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgb(189, 189, 6);
+        }
+
+        #newsletter input {
+            height: 3.125rem;
+            padding: 0 1.25em;
+            font-size: 14px;
+            width: 100%;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            outline: none;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        #newsletter .form {
+            display: flex;
+            width: 40%;
+        }
+
+        #newsletter .normal {
+            background-color: #088178;
+            color: white;
+            white-space: nowrap;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .col img {
+            width: 40%;
+            height: 40px;
+        }
+
+        .section-p1 .icon img {
+            width: 20%;
+            height: 30px;
+        }
+
+        .section-p1 .icon {
+            padding: 10px 0px;
+        }
+
+        .section-p1 .icon img:hover {
+            background-color: red;
+            cursor: pointer;
+            box-shadow: 1px solid red;
+        }
+
+        footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+
+        footer .col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        footer .logo {
+            margin-bottom: 30px;
+
+        }
+
+        footer h4 {
+            font-size: 14px;
+            padding-bottom: 20px;
+        }
+
+        footer p {
+            font-size: 13px;
+            margin: 0 0 8px 0;
+        }
+
+        footer p {
+            font-size: 13px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #222;
+        }
+
+        footer a:hover {
+            color: rgb(84, 84, 252);
+        }
+
+        /*media-query*/
+        @media(max-width:768px) {
+
+
+
+            #hero{
+                width: 105.6%;
+            }
+
+            .section-p1{
+                padding: 40px 80px;
+            }
+            #navbar {
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: -300px;
+                height: 100vh;
+                width: 200px;
+                background-color: rgb(235, 237, 191);
+                box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+                padding: 80px 0 0 10px;
+                transition: 0.3s;
+            }
+
+            #navbar.active {
+                right: 0px;
+            }
+
+            #navbar li {
+                margin-bottom: 25px;
+            }
+
+            #mobile {
+                display: flex;
+                align-items: center;
+
+
+            }
+
+            #mobile a img {
+                color: #1a1a1a;
+                font-size: 24px;
+                padding-left: 20px;
+            }
+
+            #close {
+                position: absolute;
+                top: 30px;
+                left: 30px;
+                color: #222;
+                font-size: 24px;
+            }
+
+            #hero {
+           
+            height: 70vh;
+            padding: 0 80px;
+            background-position: top 30% right 30%;
+            width: 100%;
+            }
+            #feature {
+            justify-content: space-around;
+             }
+
+             #feature .fe-box {
+         
+            margin: 20px 20px;
+            
+        }
+
+        #product1 .pro-container{
+            justify-content: center;
+        }
+
+        #product1 .pro{
+            margin: 8px;
+        }
+
+        #banner {
+          
+            height: 25vh;
+            width: 910px;
+        }
+
+        #sm-banner .banner-box {
+          
+            min-width: 120%;
+            height: 30vh;
+            padding: 30px;
+
+
+
+        }
+        
+        #newsletter .form {
+          
+            width: 70%;
+        }
+    }
+    @media(max-width:400px){
+
+     
+
+
+        #navbar {
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: -300px;
+                height: 100vh;
+                width: 200px;
+                background-color: rgb(235, 237, 191);
+                box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+                padding: 80px 0 0 40px;
+                transition: 0.3s;
+            }
+        .section-p1{
+            padding: 20px;
+        }
+        #header {
+         
+            padding: 10px 30px;
+        }
+
+        h1{
+            font-size:38px ;
+        }
+        h2{
+            font-size: 32px;
+        }
+#hero{
+    padding: 0 20px;
+    background-position: 55%;  
+}
+#feature .fe-box{
+    width: 155px;
+    margin:0 0 8px 0;
+}
+#feature{
+    justify-content: space-between;
+}
+#banner {
+         
+            width: 117.7%;
+            height: 40vh;
+           
+        }
+
+    #sm-banner .banner-box {
+          
+          min-width: 100%;
+          height: 30vh;
+          padding: 30px;
+
+
+
+      }
+
+
+#sm-banner .banner-box2{
+   margin-top: 20px;
+}
+
+#newsletter .form {
+   width: 1000%;
+    
+}
+
+footer .copyright{
+    text-align: start;
+}
+}
+    </style>
+      
+</head>
+
+
+<body>
+    <section id="header">
+        <a href="#" class="flip"><img src="flipkart.jpg" class="logo" alt=""></a>
+        <i class="fas fa-burger"></i>
+
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html"><img src="shopping-32-32.png" alt=""></a></li>
+              
+
+            </ul>
+        </div>
+
+        <div id="mobile">
+            <a href="cart.html"><img src="shopping-32-32.png" alt=""></a>
+        </div>
+    </section>
+    <section id="hero">
+        <h4>Trade-in-offer</h4>
+        <h2>Super value Deals</h2>
+        <h1>On all Products</h1>
+        <p>Save more with coupons & upto 50% off</p>
+        <button>Shop Now</button>
+    </section>
+
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <img src="shipping.jpg" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+
+        <div class="fe-box">
+            <img src="order.jpg" alt="">
+            <h6>Online Order</h6>
+        </div>
+        <div class="fe-box">
+            <img src="sale.jpg" alt="">
+            <h6>Happy Sell</h6>
+        </div>
+        <div class="fe-box">
+            <img src="savemoney.jpg" alt="">
+            <h6>Save Money</h6>
+        </div>
+        <div class="fe-box">
+            <img src="promo.jpg" alt="">
+            <h6>Promotions</h6>
+        </div>
+        <div class="fe-box">
+            <img src="24/7.jpg" alt="">
+            <h6>24/7 support</h6>
+        </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h1>Featured Products</h1>
+        <p>Brand New Winter Collection</p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="green.jpg" alt="">
+                <div class="des">
+                    <span>Adidas</span>
+                    <h4>Women Fit and Flare Green Dress</h4>
+                    <h3>$88</h3>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                <button>Shop Now</button>
+            </div>
+            <div class="pro">
+                <img src="pink.jpg" alt="">
+                <div class="des">
+                    <span>Gucci</span>
+                    <h4>Women Fit and Flare Green Dress</h4>
+                    <h3>$68</h3>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                <button>Shop Now</button>
+            </div>
+            <div class="pro">
+                <img src="blackshort.jpg" alt="">
+                <div class="des">
+                    <span>Peter England</span>
+                    <h4>Women Fit and Flare Green Dress</h4>
+                    <h3>$95</h3>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                <button>Shop Now</button>
+            </div>
+            <div class="pro">
+                <img src="yellow.jpg" alt="">
+                <div class="des">
+                    <span>Nike</span>
+                    <h4>Women Fit and Flare Green Dress</h4>
+                    <h3>$89</h3>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                <button>Shop Now</button>
+            </div>
+            <div class="pro">
+                <img src="yellowwhite.jpg" alt="">
+                <div class="des">
+                    <span>Puma</span>
+                    <h4>Women Fit and Flare Green Dress</h4>
+                    <h3>$97</h3>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                <button>Shop Now</button>
+            </div>
+            <div class="pro">
+                <img src="maroon.jpg" alt="">
+                <div class="des">
+                    <span>Adidas</span>
+                    <h4>Women Fit and Flare Green Dress</h4>
+                    <h3>$82</h3>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                <button>Shop Now</button>
+            </div>
+            <div class="pro">
+                <img src="maroonshort.jpg" alt="">
+                <div class="des">
+                    <span>Nike</span>
+                    <h4>Women Fit and Flare Green Dress</h4>
+                    <h3>$80</h3>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart"></i></a>
+                <button>Shop Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="banner" class="section-m1">
+        <h4>Repair Services</h4>
+        <h2>Up to <span>50% off</span> - All Kurtis & Accesories</h2>
+        <button class="normal">Explore Now</button>
+    </section>
+
+    <section id="sm-banner" class="section-p1">
+        <div class="banner-box">
+            <h4>Crazy deals</h4>
+            <h2>Buy 1 Get 1 free</h2>
+            <span>The best classic dress is on sale at Flipkart</span>
+            <button class="white">Learn more</button>
+        </div>
+
+        <div class="banner-box banner-box2">
+            <h4>summer/winter</h4>
+            <h2>Upcoming Season</h2>
+            <span>The best classic dress is on sale at Flipkart</span>
+            <button class="white">Collection</button>
+        </div>
+
+    </section>
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up for Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span> special offers</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign up</button>
+        </div>
+    </section>
+
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="flipkart.jpg" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address: </strong> 864vwellington Road , Street 32, San Fransisco</p>
+            <p><strong>phone: </strong> +01 2222 365 / (+91) 01 2455 6875</p>
+            <p><strong>Hours: </strong> 10:00 - 18:00, Mon-Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"><img src="facebook.jpg" alt=""></i>
+                    <i class="fab fa-twitter"><img src="insta.jpg" alt=""></i>
+                    <i class="fab fa-instagram"><img src="twitter.jpg" alt=""></i>
+                    <i class="fab fa-youtube"><img src="yputube.jpg" alt=""></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track my order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google play</p>
+            <div class="row">
+                <img src="downloadapp.jpg" alt="">
+                <img src="googleplay.jpg" alt="">
+            </div>
+        </div>
+
+
+        <div class="copyright">
+            <p>
+                @ 2021, Tech etc - HTML CSS Ecommerce Template
+            </p>
+        </div>
+    </footer>
+
+
+    <script>const bar = document.getElementById('bar')
+    const nav = document.getElementById('navbar')
+    
+    if(bar){
+        bar.addEventListener('click',()=>{
+            nav.classList.add('active')
+        })
+    }</script>
+</body>
+
+</html>
